@@ -1,97 +1,308 @@
+/* App.css */
 .app-container {
+  max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
-  text-align: center;
+  padding: 4rem;
 }
 
 .header-container {
-  padding-bottom: 2.5rem;
-  margin: auto;
   text-align: center;
-
-  align-items: center;
-  max-width: 48rem;
+  margin-bottom: 30px;
 }
 
 .main-header {
-  font-size: 2.25rem;
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.highlight {
+  color: #ff6b6b;
   font-weight: bold;
-  color: #1a202c;
-}
-
-.main-header .highlight {
-  color: #2563eb;
-}
-
-@media (min-width: 640px) {
-  .main-header {
-    font-size: 3.75rem;
-  }
 }
 
 .description {
-  font-weight: 500;
-  font-size: 1.125rem;
-  max-width: 65ch;
-  color: #1a202c;
+  color: #666;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .form-container {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .search-container {
+  position: relative;
   display: flex;
-  flex-direction: column;
   gap: 10px;
-  align-items: center;
 }
 
 .wide-input {
-  width: 100%;
-  padding: 10px;
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
   font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
 }
 
 .search-button {
-  width: 100%; /* Make the button full width */
-  max-width: 300px; /* Set a maximum width for the button */
-  padding: 10px;
+  padding: 12px 20px;
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
   font-size: 16px;
-  background-color: #007bff;
+  transition: background-color 0.3s;
+}
+
+.search-button:hover {
+  background-color: #ff5252;
+}
+
+.search-button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+.clear-button {
+  padding: 12px 20px;
+  background-color: #f0f0f0;
+  color: #333;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.clear-button:hover {
+  background-color: #e0e0e0;
+}
+
+.error-container {
+  text-align: center;
+  padding: 20px;
+  background-color: #ffe6e6;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.error-message {
+  color: #ff4444;
+  margin-bottom: 10px;
+}
+
+.retry-button {
+  padding: 8px 16px;
+  background-color: #ff6b6b;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
 }
 
-.search-button:hover {
-  background-color: #0056b3;
-}
-
-.result-container {
-  margin-top: 20px;
-  transition: height 0.3s ease-out;
-  overflow: hidden;
+.retry-button:hover {
+  background-color: #ff5252;
 }
 
 .loader-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
+  text-align: center;
+  padding: 20px;
 }
 
-.result {
-  background-color: #f8f9fa;
-  border: 1px solid #e9ecef;
-  border-radius: 4px;
-  padding: 15px;
+.loading-text {
+  margin-top: 10px;
+  color: #666;
+}
+
+.result-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.result-header h2 {
+  margin: 0;
+  color: #333;
+}
+
+.copy-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 0 10px;
+  color: #666;
+  transition: color 0.3s;
+}
+
+.copy-button:hover {
+  color: #ff6b6b;
+}
+
+.result-content {
   white-space: pre-wrap;
   word-wrap: break-word;
-  color: black;
-  font-weight: bold;
-  text-align: left; /* Align text to the left */
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #ff6b6b;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.format-example {
+  background-color: #f0f0f0;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 3rem;
+  }
+
+  .main-header {
+    font-size: 2rem;
+    line-height: 1.3;
+  }
+
+  .description {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .wide-input {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .search-button {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+
+  .clear-button {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+
+  .result-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .result-content {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .error-message {
+    font-size: 0.9rem;
+  }
+
+  .retry-button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-container {
+    padding: 2rem;
+  }
+
+  .main-header {
+    font-size: 1.75rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
+  }
+
+  .wide-input {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .search-button {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .clear-button {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+
+  .result-header h2 {
+    font-size: 1.3rem;
+  }
+
+  .result-content {
+    font-size: 13px;
+  }
+
+  .search-container {
+    flex-direction: column;
+  }
+
+  .button-container {
+    flex-direction: column;
+  }
+}
+
+/* Footer Styles */
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  padding: 15px 0;
+  z-index: 1000;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #666;
 }

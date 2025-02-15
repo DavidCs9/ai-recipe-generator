@@ -1,6 +1,6 @@
 // App.jsx (with responsive design)
-import { FormEvent, useState } from "react";
-import { Loader, Placeholder } from "@aws-amplify/ui-react";
+import { useState } from "react";
+import { Loader } from "@aws-amplify/ui-react";
 import "./App.css";
 import { Amplify } from "aws-amplify";
 import { Schema } from "../amplify/data/resource";

@@ -5,6 +5,7 @@ import { Amplify } from "aws-amplify";
 import { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
 import outputs from "../amplify_outputs.json";
+import { toast } from "react-toastify";
 
 import "@aws-amplify/ui-react/styles.css";
 
@@ -24,6 +25,11 @@ function App() {
 
     try {
       const formData = new FormData(event.currentTarget);
+
+      if (!formData.get("ingredients")) {
+        toast.error("Please enter some ingredients to generate a recipe");
+        return;
+      }
 
       const { data, errors } = await amplifyClient.queries.askBedrock({
         ingredients: [formData.get("ingredients")?.toString() || ""],

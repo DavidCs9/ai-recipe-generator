@@ -290,6 +290,13 @@
   }
 }
 
+.loading-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
 /* Footer Styles */
 .footer {
   position: fixed;

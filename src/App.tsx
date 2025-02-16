@@ -1,6 +1,5 @@
 // App.jsx (with responsive design)
 import { useState } from "react";
-import { Loader } from "@aws-amplify/ui-react";
 import "./App.css";
 import { Amplify } from "aws-amplify";
 import { Schema } from "../amplify/data/resource";
@@ -8,6 +7,7 @@ import { generateClient } from "aws-amplify/data";
 import outputs from "../amplify_outputs.json";
 import { toast } from "react-toastify";
 import "@aws-amplify/ui-react/styles.css";
+import RecipeSkeleton from "./components/RecipeSkeleton";
 
 Amplify.configure(outputs);
 
@@ -153,13 +153,7 @@ function App() {
             <pre className="result-content">{result}</pre>
           </div>
         )}
-        {loading && !error && (
-          <div className="loader-container">
-            <Loader size="large" />
-            <p className="loading-text">Generating your recipe...</p>
-          </div>
-        )}
-        // footer
+        {loading && !error && <RecipeSkeleton />}
       </div>
       <div className="footer">
         <p>👾 Made with love by David C and AWS</p>

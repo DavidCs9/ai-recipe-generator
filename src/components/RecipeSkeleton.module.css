@@ -1,0 +1,79 @@
+/* RecipeSkeleton.module.css */
+.recipeSkeleton {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.skeletonTitle {
+  height: 40px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+
+.skeletonMeta {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.skeletonMetaItem {
+  height: 24px;
+  width: 120px;
+  background: #e0e0e0;
+  border-radius: 4px;
+}
+
+.skeletonSection {
+  margin-bottom: 32px;
+}
+
+.skeletonSubtitle {
+  height: 32px;
+  width: 150px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
+.skeletonList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skeletonListItem {
+  height: 20px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  width: 80%;
+}
+
+.skeletonSteps {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skeletonStep {
+  height: 60px;
+  background: #e0e0e0;
+  border-radius: 4px;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+}
